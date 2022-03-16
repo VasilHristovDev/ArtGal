@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Painting extends Model
 {
-    use HasFactory;
+    use HasFactory, CrudTrait;
 
     public function genre()
     {
@@ -20,5 +21,9 @@ class Painting extends Model
     public function period()
     {
         $this->hasOne(Period::class);
+    }
+    public function images()
+    {
+        $this->hasMany(Image::class);
     }
 }
