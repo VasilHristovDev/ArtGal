@@ -11,7 +11,7 @@ class Exhibition extends Model
     use CrudTrait;
     use HasFactory;
     protected  $guarded=['id'];
-    protected  $fillable=['name'];
+    protected  $fillable=['theme','user_id'];
     public function paintings()
     {
         return $this->hasMany(Painting::class);

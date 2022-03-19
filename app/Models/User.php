@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
         $this->hasMany(Painting::class)->value('user_id');
     }
+    public function avatar()
+    {
+        $this->hasOne(Avatar::class);
+    }
 }
