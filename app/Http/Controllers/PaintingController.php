@@ -7,8 +7,10 @@ use App\Http\Resources\PaintingCollection;
 use App\Http\Resources\PaintingResource;
 use App\Models\Image;
 use App\Models\Painting;
+use App\Models\UserPaintingsLikes;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class PaintingController extends Controller
 {
@@ -66,48 +68,25 @@ class PaintingController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
+    public function likeLocation($id)
     {
-        //
-    }
+        $user = Auth::user();
+        $painting = Painting::where('id', $id)->first();
+        $like = $painting->likes->where('user_id',$user->id)->first();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        if($like)
+        {
+            $like->delete();
+            return response([
+                'message' => $painting->name . ' is no longer in your likes',
+            ], 200);
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
+        $like = new UserPaintingsLikes();
+        $like->user_id = $user->id;
+        $like->painting_id = $painting->id;
+        return response([
+            'message' => $painting->name. ' is now in your likes list',
+        ], 200);
     }
 }

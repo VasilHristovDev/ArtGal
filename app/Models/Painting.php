@@ -5,6 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Painting extends Model
 {
@@ -32,8 +33,19 @@ class Painting extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
     public function likes()
     {
         return $this->hasMany(UserPaintingsLikes::class);
+    }
+
+    public function checkIsLiked()
+    {
+        $user = Auth::user();
+
+        if (!$user) {
+            return null;
+        }
+        return $this->likes->where('user_id', $user->id)->count() > 0;
     }
 }
