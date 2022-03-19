@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     public function painting()
     {
-        $this->belongsTo(Painting::class);
+        return $this->belongsTo(Painting::class);
     }
 }

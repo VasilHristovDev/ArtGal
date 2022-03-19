@@ -2,19 +2,22 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Exhibition extends Model
 {
+    use CrudTrait;
     use HasFactory;
-    public  function painting()
+
+    public function paintings()
     {
-        $this->hasMany(Painting::class);
+        return $this->hasMany(Painting::class);
     }
-    public function  user()
+    public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
 }

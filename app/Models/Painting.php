@@ -12,18 +12,21 @@ class Painting extends Model
 
     public function exhibition()
     {
-        $this->belongsToMany(Exhibition::class);
+        return $this->belongsTo(Exhibition::class, 'exhibition_id');
     }
+
     public function genre()
     {
-        $this->belongsTo(Genre::class);
+        return $this->belongsTo(Genre::class, 'genre_id');
     }
+
     public function images()
     {
-        $this->hasMany(Image::class);
+        return $this->hasMany(Image::class);
     }
-    public  function user()
+
+    public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
