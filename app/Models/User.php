@@ -46,10 +46,21 @@ class User extends Authenticatable
 
     public function paintings()
     {
-        $this->hasMany(Painting::class)->value('user_id');
+       return $this->hasMany(Painting::class);
     }
     public function avatar()
     {
-        $this->hasOne(Avatar::class);
+        return $this->hasOne(Avatar::class);
+    }
+    public function exhibitions()
+    {
+        return $this->hasMany(Exhibition::class);
+    }
+
+    public function getAvatarImageAttribute()
+    {
+        if(!$this->avatar)
+            return null;
+        return $this->avatar->url;
     }
 }

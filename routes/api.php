@@ -28,4 +28,7 @@ Route::get('genre/{id}',"App\Http\Controllers\GenreController@getAllPaintingsByG
 Route::get('/', "App\Http\Controllers\SettingsController@getSiteInfo");
 Route::post("artist/{id}/painting/create", "App\Http\Controllers\PaintingController@store");
 
+//artists
+Route::get('artist/{id}', "App\Http\Controllers\ArtistController@getArtistById");
+Route::get('get-all-artists', "App\Http\Controllers\ArtistController@getAllArtists");
 

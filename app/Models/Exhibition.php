@@ -12,6 +12,7 @@ class Exhibition extends Model
     use HasFactory;
     protected  $guarded=['id'];
     protected  $fillable=['theme','user_id'];
+
     public function paintings()
     {
         return $this->hasMany(Painting::class);
