@@ -76,7 +76,12 @@ class PaintingCrudController extends CrudController
     protected function setupCreateOperation()
     {
 
-        CRUD::setFromDb(Painting::class);
+        CRUD::field('name');
+        CRUD::field('width');
+        CRUD::field('height');
+        CRUD::field('user_id');
+        CRUD::field('exhibition_id');
+        CRUD::field('genre_id');
 
         $this->crud->addField(
             [
