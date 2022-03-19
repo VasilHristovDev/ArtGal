@@ -124,9 +124,11 @@ class PaintingCrudController extends CrudController
     public function destroy($id)
     {
         $this->crud->hasAccessOrFail('delete');
+        $id = $this->crud->getCurrentEntryId() ?? $id;
         $this->deletePainting($id);
         return $this->crud->delete($id);
     }
+
     private function saveImage($file, $entryID)
     {
         $image = new Image();
@@ -161,6 +163,19 @@ class PaintingCrudController extends CrudController
         if ($images && count($images) > 0) {
             foreach ($images as $image) {
                 $this->saveImage($image, $entryID);
+            }
+        }
+
+    }
+    public function deletePainting($id)
+    {
+        $painting = Painting::find($id);
+
+        if($painting->images)
+        {
+            foreach ($painting->images as $image)
+            {
+                $this->deleteImage($image->url);
             }
         }
 
