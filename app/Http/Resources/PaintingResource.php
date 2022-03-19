@@ -27,8 +27,8 @@ class PaintingResource extends JsonResource
             'width' => $this->width,
             'height' => $this->height,
             'material' => $this->material,
-            'author' => $this->user(),
-            'genre' => $this->genre(),
+            'author' => $this->user,
+            'genre' => $this->genre,
             'gallery' => $arrWithImages,
             'exhibition' => $this->exhibition
         ];
