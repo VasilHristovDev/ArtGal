@@ -15,7 +15,7 @@ class SettingsController extends Controller
     public function getSiteInfo()
     {
         return [
-//            'logo' => Setting::get('logo'),
+            'logo' => Setting::get('logo'),
             'name' => Setting::get('name'),
             'description' => Setting::get('description'),
         ];
