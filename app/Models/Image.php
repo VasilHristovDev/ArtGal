@@ -48,4 +48,9 @@ class Image extends Model
 
         $this->url = $filename;
     }
+
+    public function getUrlAttribute($value)
+    {
+        return Storage::disk('public')->url(self::LARGE_PATH . $value);
+    }
 }

@@ -21,7 +21,7 @@ class ImageCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -29,18 +29,26 @@ class ImageCrudController extends CrudController
         CRUD::setModel(\App\Models\Image::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/image');
         CRUD::setEntityNameStrings('image', 'images');
+        $this->crud->denyAccess(['create','update']);
+
     }
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
         CRUD::column('id');
-        CRUD::column('url');
+        $this->crud->addColumn([
+            'name' => 'url', // The db column name
+            'label' => "Url", // Table column heading
+            'type' => 'image',
+            'height' => '300px',
+            'width' => '300px',
+        ]);
         CRUD::column('painting_id');
         CRUD::column('created_at');
         CRUD::column('updated_at');
@@ -48,13 +56,13 @@ class ImageCrudController extends CrudController
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
          */
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -71,13 +79,13 @@ class ImageCrudController extends CrudController
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
+         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
          */
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */

@@ -77,10 +77,6 @@ class PaintingCrudController extends CrudController
     {
 
         CRUD::setFromDb(Painting::class);
-        $this->crud->addField('user_id');
-        $this->crud->addField('genre_id');
-        $this->crud->addField('exhibition_id');
-
 
         $this->crud->addField(
             [
