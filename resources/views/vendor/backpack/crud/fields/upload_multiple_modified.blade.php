@@ -4,12 +4,12 @@
     $field['wrapper']['data-field-name'] = $field['wrapper']['data-field-name'] ?? $field['name'];
 @endphp
 
-<!-- upload multiple input -->
+
 @include('crud::fields.inc.wrapper_start')
 <label>{!! $field['label'] !!}</label>
 @include('crud::fields.inc.translatable_icon')
 
-{{-- Show the file name and a "Clear" button on EDIT form. --}}
+
 @if (isset($field['value']))
     @php
         if (is_string($field['value'])) {
@@ -30,7 +30,7 @@
                            href="{{ isset($field['disk']) ? asset(\Storage::disk($field['disk'])->url($file_path['url'])) : asset($file_path['url']) }}">
                             <img src="{{ isset($field['disk']) ? asset(\Storage::disk($field['disk'])->url($file_path['url'])) : asset($file_path['url']) }}"
                                  alt="$file_path['url']" style="max-width: 100px; max-height: 100px">
-                            {{-- {{ $file_path['url'] }} --}}
+
                         </a>
                     @endif
                     <a href="#" class="btn btn-light btn-sm align-top file-clear-button" title="Clear file"
@@ -41,7 +41,7 @@
         </div>
     @endif
 @endif
-{{-- Show the file picker on CREATE form. --}}
+
 <input name="{{ $field['name'] }}[]" type="hidden" value="">
 <div class="backstrap-file mt-2">
     <div class="preview-images">
@@ -61,16 +61,13 @@
 @endif
 @include('crud::fields.inc.wrapper_end')
 
-{{-- ########################################## --}}
-{{-- Extra CSS and JS for this particular field --}}
-{{-- If a field type is shown multiple times on a form, the CSS and JS will only be loaded once --}}
 @if ($crud->fieldTypeNotLoaded($field))
     @php
         $crud->markFieldTypeAsLoaded($field);
     @endphp
 
     @push('crud_fields_scripts')
-        <!-- no scripts -->
+
         <script>
             function bpFieldInitUploadMultipleElement(element) {
                 var fieldName = element.attr('data-field-name');

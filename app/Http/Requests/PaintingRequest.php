@@ -28,9 +28,6 @@ class PaintingRequest extends FormRequest
             'name' => 'required|min:5|max:255',
             'width' => 'required|numeric',
             'height' => 'required|numeric',
-            'user' => 'required',
-            'genre' => 'required',
-            'material' => 'required'
         ];
     }
 

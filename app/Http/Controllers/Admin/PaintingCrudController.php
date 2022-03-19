@@ -40,6 +40,24 @@ class PaintingCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/painting');
         CRUD::setEntityNameStrings('painting', 'paintings');
     }
+    protected function setupShowOperation()
+    {
+        CRUD::column('name');
+        $this->crud->addColumn([
+            'label' => 'images',
+            'type' => 'select2',
+            'name' => 'painting_id', // the db column for the foreign key
+            'entity' => 'images', // the method that defines the relationship in your Model
+            'attribute' => 'url', // foreign key attribute that is shown to user
+            'model' => 'App\Models\Image' // foreign key model
+        ]);
+        CRUD::column('width');
+        CRUD::column('height');
+        CRUD::column('material');
+        CRUD::column('user_id');
+        CRUD::column('exhibition_id');
+        CRUD::column('genre_id');
+    }
 
     /**
      * Define what happens when the List operation is loaded.
@@ -92,7 +110,7 @@ class PaintingCrudController extends CrudController
                     'accept' => 'image/*',
                 ],
             ]
-        )->afterField('featured_image');
+        )->afterField('material');
     }
 
     /**
@@ -105,6 +123,7 @@ class PaintingCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
+
     public function store()
     {
         $this->crud->setValidation(PaintingRequest::class);
@@ -115,7 +134,7 @@ class PaintingCrudController extends CrudController
 
     public function update()
     {
-        $this->crud->setValidation(UpdatePaintingRequest::class);
+        $this->crud->setValidation(PaintingRequest::class);
         $response = $this->traitUpdate();
         $this->savePaintingWithGallery();
         return $response;

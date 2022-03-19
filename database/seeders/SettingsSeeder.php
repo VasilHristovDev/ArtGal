@@ -32,5 +32,15 @@ class SettingsSeeder extends Seeder
             'field' => '{"name":"value","label":"Value","type":"tinymce"}',
             'active' => 1
         ]);
+
+        DB::table('settings')->insert([
+            'key' => 'logo',
+            'name' => 'Website Logo',
+            'description' => 'The logo of the website',
+            'value' => 'http://artgal-amigos-bg.site/storage/logo_artgal.png',
+            'field' => '{"name":"value","label":"Value","type":"tinymce"}',
+            'active' => 1
+        ]);
+
     }
 }

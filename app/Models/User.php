@@ -56,6 +56,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Exhibition::class);
     }
+    public function likes()
+    {
+        return $this->hasMany(UserPaintingsLikes::class);
+    }
 
     public function getAvatarImageAttribute()
     {
