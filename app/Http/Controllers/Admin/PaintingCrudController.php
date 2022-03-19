@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\PaintingRequest;
+use App\Models\Painting;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanel;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -66,18 +67,18 @@ class PaintingCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(PaintingRequest::class);
 
-        CRUD::field('id');
-        CRUD::field('name');
-        CRUD::field('width');
-        CRUD::field('height');
-        CRUD::field('material');
-        CRUD::field('user_id');
-        CRUD::field('exhibition_id');
-        CRUD::field('genre_id');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
+        CRUD::setFromDb(Painting::class);
+        $this->crud->addField('user_id');
+        $this->crud->addField('genre_id');
+        $this->crud->addField('exhibition_id');
+//        CRUD::field('name');
+//        CRUD::field('width');
+//        CRUD::field('height');
+//        CRUD::field('material');
+//        CRUD::field('genre_id');
+//        CRUD::field('user_id');
+//        CRUD::field('exhibition_id');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

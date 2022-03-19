@@ -10,6 +10,9 @@ class Painting extends Model
 {
     use HasFactory, CrudTrait;
 
+    protected $guarded = ['id'];
+    protected $fillable = ['name', 'width', 'height', 'material', 'user_id', 'genre_id', 'exhibition_id'];
+
     public function exhibition()
     {
         return $this->belongsTo(Exhibition::class, 'exhibition_id');
