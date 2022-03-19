@@ -7,11 +7,12 @@
     "require": {
         "php": "^8.0.2",
         "backpack/crud": "^5.0",
+        "backpack/settings": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "dev-master",
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
-        "laravel/tinker": "^2.7",
-        "intervention/image": "dev-master"
+        "laravel/tinker": "^2.7"
     },
     "require-dev": {
         "backpack/generators": "^3.1",

@@ -21,4 +21,5 @@ Route::group([
     Route::crud('genre', 'GenreCrudController');
     Route::crud('exhibition', 'ExhibitionCrudController');
     Route::crud('image', 'ImageCrudController');
+    Route::crud('setting', 'SettingCrudController');
 }); // this should be the absolute last line of this file

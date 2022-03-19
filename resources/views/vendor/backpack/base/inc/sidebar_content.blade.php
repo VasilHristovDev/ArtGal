@@ -5,3 +5,4 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('genre') }}'><i class='nav-icon la la-theater-masks'></i> Genres</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('exhibition') }}'><i class='nav-icon la la-feather'></i> Exhibitions</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('image') }}'><i class='nav-icon la la-image'></i> Images</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('setting') }}'><i class='nav-icon la la-cog'></i> Settings</a></li>
