@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('exhibitions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->text('timespan');
+            $table->string('theme');
+            $table->integer('user_id');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

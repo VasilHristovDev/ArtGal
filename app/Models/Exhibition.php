@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Exhibition extends Model
 {
     use HasFactory;
+    public  function painting()
+    {
+        $this->hasMany(Painting::class);
+    }
+    public function  user()
+    {
+        $this->belongsTo(User::class);
+    }
+
 }

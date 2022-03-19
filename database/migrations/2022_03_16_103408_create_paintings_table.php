@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('paintings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
-            $table->integer('est');
-            $table->integer('user_id')->nullable();
+            $table->integer('width');
+            $table->integer('height');
+            $table->string('material');
+            $table->integer('user_id');
             $table->integer('exhibition_id')->nullable();
-            $table->integer('genre_id')->nullable();
-            $table->integer('period_id')->nullable();
+            $table->integer('genre_id');
             $table->timestamps();
         });
     }

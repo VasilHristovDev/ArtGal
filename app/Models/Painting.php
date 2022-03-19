@@ -10,20 +10,20 @@ class Painting extends Model
 {
     use HasFactory, CrudTrait;
 
-    public function genre()
-    {
-        $this->hasOne(Genre::class);
-    }
     public function exhibition()
     {
-        $this->hasOne(Exhibition::class);
+        $this->belongsToMany(Exhibition::class);
     }
-    public function period()
+    public function genre()
     {
-        $this->hasOne(Period::class);
+        $this->belongsTo(Genre::class);
     }
     public function images()
     {
         $this->hasMany(Image::class);
+    }
+    public  function user()
+    {
+        $this->belongsTo(User::class);
     }
 }
