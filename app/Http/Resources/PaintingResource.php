@@ -15,6 +15,12 @@ class PaintingResource extends JsonResource
      */
     public function toArray($request)
     {
+        $arrWithImages = [];
+        foreach ($this->images as $image)
+        {
+            $arrWithImages = $image;
+        }
+
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -23,7 +29,8 @@ class PaintingResource extends JsonResource
             'material' => $this->material,
             'author' => $this->user(),
             'genre' => $this->genre(),
-            'exhibition' => $this->exhibition()
+            'gallery' => $arrWithImages,
+            'exhibition' => $this->exhibition
         ];
     }
 }
