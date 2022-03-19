@@ -79,6 +79,7 @@ class PaintingCrudController extends CrudController
         CRUD::field('name');
         CRUD::field('width');
         CRUD::field('height');
+        CRUD::field('material');
         CRUD::field('user_id');
         CRUD::field('exhibition_id');
         CRUD::field('genre_id');
