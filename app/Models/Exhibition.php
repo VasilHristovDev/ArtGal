@@ -10,7 +10,8 @@ class Exhibition extends Model
 {
     use CrudTrait;
     use HasFactory;
-
+    protected  $guarded=['id'];
+    protected  $fillable=['name'];
     public function paintings()
     {
         return $this->hasMany(Painting::class);

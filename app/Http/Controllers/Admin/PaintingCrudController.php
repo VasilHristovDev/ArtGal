@@ -49,7 +49,7 @@ class PaintingCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('id');
+      //  CRUD::column('id');
         CRUD::column('name');
         CRUD::column('width');
         CRUD::column('height');
@@ -57,8 +57,6 @@ class PaintingCrudController extends CrudController
         CRUD::column('user_id');
         CRUD::column('exhibition_id');
         CRUD::column('genre_id');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
