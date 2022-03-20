@@ -18,7 +18,7 @@ class PaintingResource extends JsonResource
         $arrWithImages = [];
         foreach ($this->images as $image)
         {
-            $arrWithImages = $image->url;
+            $arrWithImages[] = $image->url;
         }
 
         return [
