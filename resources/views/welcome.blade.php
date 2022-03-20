@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="/logo192.png"/>
     <link rel="manifest" href="/manifest.json"/>
     <title>Art Gallery</title>
-    <script defer="defer" src="/js/main.3d42089b.js"></script>
+    <script defer="defer" src="/js/main.af2ef3ee.js"></script>
     <link href="/css/main.fa351c36.css" rel="stylesheet">
 </head>
 <body>
