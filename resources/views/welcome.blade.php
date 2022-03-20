@@ -11,11 +11,11 @@
     <link rel="apple-touch-icon" href="/logo192.png"/>
     <link rel="manifest" href="/manifest.json"/>
     <title>Art Gallery</title>
-    <script defer="defer" src="/js/main.092b84a1.js"></script>
-    <link href="/css/main.adca50eb.css" rel="stylesheet">
+    <script defer="defer" src="/js/main.3d42089b.js"></script>
+    <link href="/css/main.fa351c36.css" rel="stylesheet">
 </head>
 <body>
-<noscript>You need to enable JavaScript to run ArtGal app properly.</noscript>
+<noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root"></div>
 </body>
 </html>
