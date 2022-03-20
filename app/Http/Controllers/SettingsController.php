@@ -18,6 +18,7 @@ class SettingsController extends Controller
             'logo' => Setting::get('logo'),
             'name' => Setting::get('name'),
             'description' => Setting::get('description'),
+            'painting_of_the_day' => Setting::get('painting_of_the_day')
         ];
     }
 }
