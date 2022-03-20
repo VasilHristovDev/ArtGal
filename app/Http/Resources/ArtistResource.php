@@ -21,7 +21,7 @@ class ArtistResource extends JsonResource
 
         foreach ($this->paintings as $painting) {
             $arrWithPaintings[] = $painting;
-            $arrWithPaintings['images'] = $painting->images;
+            $arrWithPaintings[]['images'] = $painting->images;
         }
         foreach ($this->exhibitions as $exhibition) {
             $arrWithExhibitions[] = $exhibition;
