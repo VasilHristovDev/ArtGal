@@ -31,5 +31,6 @@ Route::post("artist/{id}/painting/create", "App\Http\Controllers\PaintingControl
 //artists
 Route::get('artist/{id}', "App\Http\Controllers\ArtistController@getArtistById");
 Route::get('get-all-artists', "App\Http\Controllers\ArtistController@getAllArtists");
+Route::get('artist/{id}/get-all-exhibitions', "App\Http\Controllers\ArtistController@getAllExhibitions");
 //Authentication
-
+Route::post("register", "App\Http\Controllers\AuthController@register");

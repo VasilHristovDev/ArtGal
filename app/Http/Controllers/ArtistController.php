@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ArtistCollection;
 use App\Http\Resources\ArtistResource;
+use App\Http\Resources\ExhibitionCollection;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Resources;
@@ -28,11 +29,16 @@ class ArtistController extends Controller
         return new ArtistCollection($artists);
     }
 
-    public function getAllExhibitions()
+    public function getAllExhibitions($id)
     {
-        $artists = User::where('role_id',2)->get();
-
-        return $artists;
-        //return new UserCollection($exhibitions);
+        $artist = User::where('role_id',2)->where('id',$id)->get();
+        if(!$artist)
+        {
+            return response([
+                'No artist was found!',
+                404
+            ]);
+        }
+        return new ExhibitionCollection($artist->exhibitions);
     }
 }

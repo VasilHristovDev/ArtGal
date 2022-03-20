@@ -14,7 +14,7 @@ class UserRequest extends FormRequest
     public function authorize()
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check();
+//        return backpack_auth()->check();
     }
 
     /**
@@ -25,7 +25,10 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required|min:5|max:255',
+            'age' => 'numeric|required',
+            'email' => 'email|required|unique',
+            'password' => 'required|confirmed',
         ];
     }
 
