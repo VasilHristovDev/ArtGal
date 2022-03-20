@@ -25,6 +25,7 @@ class ArtistCollection extends ResourceCollection
             $tempObj->country = $artist->country;
             $tempObj->paintings_count = $artist->paintings->count();
             $tempObj->exhibitions_count = $artist->exhibitions->count();
+            $tempObj->avatar_image = $artist->avatar->getAvatarImageAttribute();
             $arr[] = $tempObj;
        }
         return $arr;
