@@ -21,6 +21,7 @@ class ArtistCollection extends ResourceCollection
        $arr = [];
         foreach ($this as $artist) {
             $tempObj = new \stdClass();
+            $tempObj->id = $artist->id;
             $tempObj->name = $artist->name;
             $tempObj->country = $artist->country;
             $tempObj->paintings_count = $artist->paintings->count();
