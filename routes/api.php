@@ -34,3 +34,6 @@ Route::get('get-all-artists', "App\Http\Controllers\ArtistController@getAllArtis
 Route::get('artist/{id}/get-all-exhibitions', "App\Http\Controllers\ArtistController@getAllExhibitions");
 //Authentication
 Route::post("register", "App\Http\Controllers\AuthController@register");
+Route::post("login", "App\Http\Controllers\AuthController@login");
+Route::post("painting/{id}/like", "App\Http\Controllers\PaintingController@likeLocation")->middleware('auth:sanctum');
+Route::post("logout", "App\Http\Controllers\AuthController@logout")->middleware('auth:sanctum');
