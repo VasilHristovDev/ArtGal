@@ -11,8 +11,8 @@
     <link rel="apple-touch-icon" href="/logo192.png"/>
     <link rel="manifest" href="/manifest.json"/>
     <title>Art Gallery</title>
-    <script defer="defer" src="/js/main.af2ef3ee.js"></script>
-    <link href="/css/main.fa351c36.css" rel="stylesheet">
+    <script defer="defer" src="/js/main.7209dfbb.js"></script>
+    <link href="/css/main.d105cc35.css" rel="stylesheet">
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
