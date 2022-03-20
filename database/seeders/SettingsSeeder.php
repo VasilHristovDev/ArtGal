@@ -18,10 +18,10 @@ class SettingsSeeder extends Seeder
 
 
         DB::table('settings')->insert([
-            'key' => 'logo',
-            'name' => 'Website Logo',
-            'description' => 'The logo of the website',
-            'value' => 'http://artgal-amigos-bg.site/storage/logo_artgal.png',
+            'key' => 'painting_of_the_day',
+            'name' => 'Painting of the day',
+            'description' => 'Random painting',
+            'value' => '',
             'field' => '{"name":"value","label":"Value","type":"tinymce"}',
             'active' => 1
         ]);

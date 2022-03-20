@@ -33,19 +33,23 @@ class GeneratePaintingOfTheDay extends Command
     {
         try {
             $oldPainting = json_decode(Setting::get('painting_of_the_day'));
-            $painting = Painting::all()->inRandomOrder()->first();
+            $painting = Painting::select("*")->inRandomOrder()->first();
             $count = Painting::all()->count();
             if ($oldPainting && $painting) {
                 while ($oldPainting->id == $painting->id && $count > 1) {
-                    $painting = Painting::all()->inRandomOrder()->first();
+                    $painting = Painting::select("*")->inRandomOrder()->first();
                 }
             }
             if ($painting) {
+                $arrGallery = [];
+                foreach ($painting->images as $image) {
+                    $arrGallery[] = $image->url;
+                }
                 Setting::set('painting_of_the_day', [
                     'id' => $painting->id,
                     'name' => $painting->name,
-                    'genre' => $painting->genre(),
-                    'gallery' => $painting->images(),
+                    'genre' => $painting->genre,
+                    'gallery' => $arrGallery,
                     'user' => $painting->userData(),
                 ]);
             }

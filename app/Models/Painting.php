@@ -48,4 +48,12 @@ class Painting extends Model
         }
         return $this->likes->where('user_id', $user->id)->count() > 0;
     }
+
+    public function userData()
+    {
+        return [
+            'name' => $this->user->name,
+            'age' => $this->user->age
+        ];
+    }
 }
